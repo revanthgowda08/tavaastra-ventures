@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000">
+  <defs><linearGradient id="bg-svc3" gradientTransform="rotate(156)">
+    <stop offset="0%" stop-color="#0B0B0B"/>
+    <stop offset="100%" stop-color="#2c2620"/>
+  </linearGradient>
+  <filter id="grain-svc3">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/>
+  </filter></defs>
+  <rect width="1400" height="1000" fill="url(#bg-svc3)"/>
+    <g fill="none" stroke="#F5F2EC33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="140" y="140" width="520" height="440"/>
+      <line x1="140" y1="380" x2="420" y2="380"/>
+      <line x1="420" y1="140" x2="420" y2="580"/>
+      <rect x="480" y="200" width="120" height="90"/>
+      <path d="M220 380 A80 80 0 0 1 300 300"/>
+      <path d="M460 380 A70 70 0 0 0 530 450"/>
+    </g><rect width="1400" height="1000" fill="black" opacity="0.06"/>
+  <rect width="1400" height="1000" filter="url(#grain-svc3)" opacity="0.6"/>
+</svg>

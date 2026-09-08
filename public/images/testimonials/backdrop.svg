@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs><linearGradient id="bg-testi" gradientTransform="rotate(125)">
+    <stop offset="0%" stop-color="#0B0B0B"/>
+    <stop offset="100%" stop-color="#2c2620"/>
+  </linearGradient>
+  <filter id="grain-testi">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/>
+  </filter></defs>
+  <rect width="1600" height="1000" fill="url(#bg-testi)"/>
+    <g fill="none" stroke="#B89A5A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="180" y="100" width="440" height="500"/>
+      <line x1="400" y1="100" x2="400" y2="600"/>
+      <line x1="180" y1="350" x2="620" y2="350"/>
+      <path d="M180 600 L120 660 M620 600 L680 660"/>
+    </g><rect width="1600" height="1000" fill="black" opacity="0.06"/>
+  <rect width="1600" height="1000" filter="url(#grain-testi)" opacity="0.6"/>
+</svg>

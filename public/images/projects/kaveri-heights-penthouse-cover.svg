@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100">
+  <defs><linearGradient id="bg-kaveri-heights-penthouse-cover" gradientTransform="rotate(115)">
+    <stop offset="0%" stop-color="#181818"/>
+    <stop offset="100%" stop-color="#3a352c"/>
+  </linearGradient>
+  <filter id="grain-kaveri-heights-penthouse-cover">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/>
+  </filter></defs>
+  <rect width="1600" height="1100" fill="url(#bg-kaveri-heights-penthouse-cover)"/>
+    <g fill="none" stroke="#18181822" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M300 200 Q300 120 400 120 Q500 120 500 200 L500 340" />
+      <rect x="260" y="340" width="280" height="40" rx="10"/>
+      <line x1="280" y1="380" x2="270" y2="520"/>
+      <line x1="520" y1="380" x2="530" y2="520"/>
+      <line x1="300" y1="380" x2="300" y2="500"/>
+      <line x1="500" y1="380" x2="500" y2="500"/>
+    </g><rect width="1600" height="1100" fill="black" opacity="0.06"/>
+  <rect width="1600" height="1100" filter="url(#grain-kaveri-heights-penthouse-cover)" opacity="0.6"/>
+</svg>

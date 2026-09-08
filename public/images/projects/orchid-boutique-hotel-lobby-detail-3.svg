@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
+  <defs><linearGradient id="bg-orchid-boutique-hotel-lobby-detail-3" gradientTransform="rotate(265)">
+    <stop offset="0%" stop-color="#20201d"/>
+    <stop offset="100%" stop-color="#5c4c33"/>
+  </linearGradient>
+  <filter id="grain-orchid-boutique-hotel-lobby-detail-3">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/>
+  </filter></defs>
+  <rect width="1200" height="1500" fill="url(#bg-orchid-boutique-hotel-lobby-detail-3)"/>
+    <g fill="none" stroke="#F5F2EC30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M360 160 Q330 260 350 340 Q300 420 320 520 Q330 580 400 580 Q470 580 480 520 Q500 420 450 340 Q470 260 440 160 Z"/>
+      <line x1="330" y1="160" x2="470" y2="160"/>
+    </g><rect width="1200" height="1500" fill="black" opacity="0.06"/>
+  <rect width="1200" height="1500" filter="url(#grain-orchid-boutique-hotel-lobby-detail-3)" opacity="0.6"/>
+</svg>

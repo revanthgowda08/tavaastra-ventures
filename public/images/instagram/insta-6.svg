@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900">
+  <defs><linearGradient id="bg-insta5" gradientTransform="rotate(190)">
+    <stop offset="0%" stop-color="#8E7345"/>
+    <stop offset="100%" stop-color="#B89A5A"/>
+  </linearGradient>
+  <filter id="grain-insta5">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/>
+  </filter></defs>
+  <rect width="900" height="900" fill="url(#bg-insta5)"/>
+    <g fill="none" stroke="#F5F2EC2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="120" y="140" width="560" height="360"/>
+      <rect x="200" y="200" width="400" height="240"/>
+      <rect x="280" y="260" width="240" height="120"/>
+      <circle cx="400" cy="320" r="10" fill="#F5F2EC2f" stroke="none"/>
+      <circle cx="250" cy="220" r="6" fill="#F5F2EC2f" stroke="none"/>
+      <circle cx="550" cy="220" r="6" fill="#F5F2EC2f" stroke="none"/>
+      <circle cx="250" cy="420" r="6" fill="#F5F2EC2f" stroke="none"/>
+      <circle cx="550" cy="420" r="6" fill="#F5F2EC2f" stroke="none"/>
+    </g><rect width="900" height="900" fill="black" opacity="0.06"/>
+  <rect width="900" height="900" filter="url(#grain-insta5)" opacity="0.6"/>
+</svg>

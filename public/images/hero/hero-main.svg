@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs><linearGradient id="bg-hero" gradientTransform="rotate(120)">
+    <stop offset="0%" stop-color="#20201d"/>
+    <stop offset="100%" stop-color="#0B0B0B"/>
+  </linearGradient>
+  <filter id="grain-hero">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+  </filter></defs>
+  <rect width="1920" height="1080" fill="url(#bg-hero)"/>
+    <g fill="none" stroke="#B89A5A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="180" y="100" width="440" height="500"/>
+      <line x1="400" y1="100" x2="400" y2="600"/>
+      <line x1="180" y1="350" x2="620" y2="350"/>
+      <path d="M180 600 L120 660 M620 600 L680 660"/>
+    </g><rect width="1920" height="1080" fill="black" opacity="0.06"/>
+  <rect width="1920" height="1080" filter="url(#grain-hero)" opacity="0.6"/>
+</svg>

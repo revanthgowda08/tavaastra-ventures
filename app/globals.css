@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+
+  --color-ivory: #f5f2ec;
+  --color-beige: #ded6c8;
+  --color-charcoal: #181818;
+  --color-black: #0b0b0b;
+  --color-gold: #b89a5a;
+  --color-bronze: #8e7345;
+
+  --breakpoint-xs: 420px;
+}
+
+:root {
+  --background: #f5f2ec;
+  --foreground: #181818;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4,
+.font-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #b89a5a;
+  color: #0b0b0b;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom cursor — desktop only */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-ring { display: none; }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Utility: fine architectural hairline */
+.hairline {
+  border-color: color-mix(in srgb, var(--foreground) 14%, transparent);
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 1px #b89a5a;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

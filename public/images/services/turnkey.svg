@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000">
+  <defs><linearGradient id="bg-svc5" gradientTransform="rotate(180)">
+    <stop offset="0%" stop-color="#181818"/>
+    <stop offset="100%" stop-color="#B89A5A"/>
+  </linearGradient>
+  <filter id="grain-svc5">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/>
+  </filter></defs>
+  <rect width="1400" height="1000" fill="url(#bg-svc5)"/>
+    <g fill="none" stroke="#F5F2EC33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M160 560 h80 v-70" /><path d="M240 490 h80 v-70" /><path d="M320 420 h80 v-70" /><path d="M400 350 h80 v-70" /><path d="M480 280 h80 v-70" /><path d="M560 210 h80 v-70" />
+    </g><rect width="1400" height="1000" fill="black" opacity="0.06"/>
+  <rect width="1400" height="1000" filter="url(#grain-svc5)" opacity="0.6"/>
+</svg>
