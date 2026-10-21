@@ -34,6 +34,7 @@ export default function Services() {
             <Link
               key={service.slug}
               href={`/services#${service.slug}`}
+              scroll={false}
               onMouseEnter={() => setActive(i)}
               onMouseLeave={() => setActive(null)}
               data-cursor="View"

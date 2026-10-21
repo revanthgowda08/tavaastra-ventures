@@ -1,69 +1,58 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { processSteps } from "@/data/process";
+import { useMediaQuery } from "@/lib/useMediaQuery";
+import { useIsomorphicLayoutEffect } from "@/lib/useIsomorphicLayoutEffect";
 import Kicker from "./Kicker";
 import RevealText from "./RevealText";
 
 export default function Process() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery("(min-width: 900px)");
+  const [distance, setDistance] = useState(0);
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    const track = trackRef.current;
-    const line = lineRef.current;
-    if (!section || !track) return;
+  useIsomorphicLayoutEffect(() => {
+    if (!isDesktop) return;
 
-    const mm = gsap.matchMedia();
-
-    mm.add("(min-width: 900px)", () => {
-      const distance = () => track.scrollWidth - window.innerWidth;
-
-      const tween = gsap.to(track, {
-        x: () => -distance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${distance()}`,
-          scrub: 0.7,
-          pin: true,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      if (line) {
-        gsap.fromTo(
-          line,
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: () => `+=${distance()}`,
-              scrub: 0.7,
-            },
-          }
-        );
+    function measure() {
+      if (trackRef.current) {
+        setDistance(Math.max(0, trackRef.current.scrollWidth - window.innerWidth));
       }
+    }
+    measure();
+    // Re-measure once more after layout/fonts settle, then keep in sync with viewport size.
+    const raf = requestAnimationFrame(measure);
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", measure);
+    };
+  }, [isDesktop]);
 
-      return () => {
-        tween.scrollTrigger?.kill();
-        tween.kill();
-      };
-    });
-
-    return () => mm.revert();
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -distance]);
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section ref={sectionRef} id="process" className="relative overflow-hidden bg-ivory">
-      <div className="flex h-auto min-h-[100svh] flex-col justify-center py-24 md:h-[100svh] md:py-0">
+    <section
+      ref={sectionRef}
+      id="process"
+      className="relative overflow-hidden bg-ivory"
+      style={isDesktop ? { height: `calc(100vh + ${distance}px)` } : undefined}
+    >
+      <div
+        className={
+          isDesktop
+            ? "sticky top-0 flex h-screen flex-col justify-center overflow-hidden"
+            : "flex min-h-[100svh] flex-col justify-center py-24"
+        }
+      >
         <div className="mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-14">
           <Kicker className="mb-6">Our Process</Kicker>
           <h2 className="font-serif text-[11vw] leading-[0.94] text-charcoal sm:text-6xl md:text-[4.4vw]">
@@ -71,11 +60,15 @@ export default function Process() {
           </h2>
         </div>
 
-        <div
+        <motion.div
           ref={trackRef}
+          style={isDesktop ? { x } : undefined}
           className="mt-16 flex w-max flex-col gap-16 px-6 md:mt-20 md:flex-row md:items-center md:gap-0 md:px-14"
         >
-          <div ref={lineRef} className="pointer-events-none absolute left-0 right-0 top-1/2 hidden h-px origin-left bg-charcoal/15 md:block" />
+          <motion.div
+            style={{ scaleX: isDesktop ? lineScale : 1 }}
+            className="pointer-events-none absolute left-0 right-0 top-1/2 hidden h-px origin-left bg-charcoal/15 md:block"
+          />
 
           {processSteps.map((step, i) => (
             <div
@@ -95,7 +88,7 @@ export default function Process() {
               )}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+import HashScrollFix from "@/components/HashScrollFix";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/data/site";
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <SmoothScroll>
           <CustomCursor />
+          <HashScrollFix />
           <Navbar />
           <main>{children}</main>
           <Footer />

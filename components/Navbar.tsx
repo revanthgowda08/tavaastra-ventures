@@ -58,6 +58,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                scroll={!link.href.includes("#")}
                 className={`text-[13px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
                   dark ? "text-charcoal/70 hover:text-charcoal" : "text-ivory/80 hover:text-ivory"
                 }`}
@@ -121,6 +122,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    scroll={!link.href.includes("#")}
                     className="font-serif text-4xl text-charcoal transition-colors hover:text-gold sm:text-6xl"
                   >
                     {link.label}
